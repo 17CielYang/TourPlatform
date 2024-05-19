@@ -17,7 +17,7 @@ const toggleSignUp = () => {
 // 前端代码微调
 const handleSubmitSignUp = async () => {
     try {
-        const response = await fetch('http://localhost:5000/register', {  // 确保 URL 是正确的，包括端口号
+        const response = await fetch('http://localhost:5001/register', {  // 确保 URL 是正确的，包括端口号
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

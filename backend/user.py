@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # 应用 CORS 设置到 Flask 应用
+CORS(app, resources={r"/*": {"origins": "*"}})  # 允许所有域名访问
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -47,4 +47,4 @@ def login():
 
 if __name__ == '__main__':
     setup_database()
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
